@@ -10,8 +10,8 @@ import Upload from '@/view/upload/upload'
 
 export default () => (
 	<Router history={hashHistory}>
-        <Route path="/" component={Get}>
-        	<IndexRoute component={Get} />
+        <Route path="/" component={Index}>
+        	{/*<IndexRoute component={Index} />*/}
         	<Route path="/collection" component={Collection}/>
         	<Route path="/share" component={Share}/>
         	<Route path="/get" component={Get}/>

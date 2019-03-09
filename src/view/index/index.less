@@ -1,0 +1,36 @@
+.header{
+	height:154px;
+	background: #199DDA;
+	color: #ffffff;
+	.top{
+	}
+	.middle{
+		text-align: left;
+		.avatar{
+			width:50px;height:50px;
+		}
+		.fr{
+			width: calc(100% - 70px);
+		}
+		.name{
+			overflow: hidden;white-space: nowrap;text-overflow: ellipsis;
+		}
+		.progress{
+			position: relative;
+			height: 6px;
+			width: 100%;
+			border-radius: 3px;
+			background: rgba(255, 255, 255, 0.25);
+			.filled{
+				position: absolute;height: 6px;left:0;top:0;border-radius: 3px;background: #ffffff;
+			}
+		}
+	}
+	.menu{
+		ul{
+			li.active{
+				font-weight: 600;
+			}
+		}
+	}
+}

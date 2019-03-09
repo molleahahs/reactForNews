@@ -1,0 +1,46 @@
+{
+  "name": "hashreact",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "webpack-dev-server --inline --config build/webpack.conf.js"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.15",
+    "@fortawesome/free-solid-svg-icons": "^5.7.2",
+    "@fortawesome/react-fontawesome": "^0.1.4",
+    "react": "^16.0.0",
+    "react-copy-to-clipboard": "~5.0.1",
+    "react-dom": "^16.0.0",
+    "react-redux": "~5.0.6",
+    "react-router": "3.2.0",
+    "react-router-redux": "~4.0.5",
+    "redux": "~3.7.2",
+    "redux-actions": "~2.2.1",
+    "redux-thunk": "~2.2.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.22.1",
+    "babel-loader": "^7.1.1",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "css-loader": "^2.1.0",
+    "html-webpack-plugin": "^2.30.1",
+    "less": "^3.9.0",
+    "less-loader": "^4.1.0",
+    "lodash": "^4.17.11",
+    "style-loader": "^0.23.1",
+    "url-loader": "^1.1.2",
+    "webpack": "^3.6.0",
+    "webpack-dev-server": "^2.9.1"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}

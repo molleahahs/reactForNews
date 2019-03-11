@@ -23,21 +23,33 @@ export default class Index extends Component {
 		};
 	}
 
-	cacProgressData() {//计算当前显示的内存GB，保留两位有效数字
-		this.setState({curProgressData: (this.state.curProgress * this.state.totalProgress/100).toFixed(2)})
-	}
-
 	menuOpen(item) {//改变当前菜单的样式		
 		_.forEach(this.state.menuList, function(key, value){
 			key.isActive = false;
 		})
 		item.isActive = true;
-		/*browserHistory.push(item.url)*/
+		this.setState({menuList:this.state.menuList})//不写这句话，页面就没有样式变化
+	}
+
+	cacProgressData() {//计算当前显示的内存GB，保留两位有效数字
+		this.setState({curProgressData: (this.state.curProgress * this.state.totalProgress/100).toFixed(2)})
+	}
+
+	menuCur() {// 用户随意输入一个链接，根据链接设置当前样式
+		var hash = browserHistory.getCurrentLocation().hash.substring(2);
+		_.forEach(this.state.menuList, function(key, value){
+			if(key.url == hash){
+				key.isActive = true;
+			}else{
+				key.isActive = false;
+			}
+		})
 		this.setState({menuList:this.state.menuList})//不写这句话，页面就没有样式变化
 	}
 
 	componentDidMount() {//初始化就执行的两个函数
 		this.cacProgressData();
+		this.menuCur();
 	}
 
 	render() {
@@ -50,7 +62,7 @@ export default class Index extends Component {
 	        <div>
 		      	<div className="header">
 		      		<div className="top clear">
-		      			<div className="fl size-16 p15 hoverp"><FontAwesomeIcon className="size-16 m5r" icon="chevron-left" />back</div>
+		      			<div className="fl size-16 p15 hoverp"><FontAwesomeIcon className="size-16 m5r" icon="chevron-left" /><FormattedMessage id="commonBack" /></div>
 		      			<div className="fr p15 hoverp"><FontAwesomeIcon className="size-16" icon="search" /></div>
 		      		</div>
 		      		<div className="middle p15h m5b clear">

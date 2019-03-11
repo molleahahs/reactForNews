@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { browserHistory, Link } from 'react-router'
+import { browserHistory, Route, Link  } from 'react-router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'//小图标
 import './index.less'
 import { FormattedMessage  } from 'react-intl';//多语言
@@ -32,18 +32,12 @@ export default class Index extends Component {
 			key.isActive = false;
 		})
 		item.isActive = true;
-		browserHistory.push(item.url)
-
+		/*browserHistory.push(item.url)*/
 		this.setState({menuList:this.state.menuList})//不写这句话，页面就没有样式变化
-	}
-
-	linkTo(){//默认链接分享给您页面
-
 	}
 
 	componentDidMount() {//初始化就执行的两个函数
 		this.cacProgressData();
-		this.linkTo();
 	}
 
 	render() {
@@ -74,19 +68,18 @@ export default class Index extends Component {
 		      				{
 		      					this.state.menuList.map(function(item,i){
 		      						return (
-		      							/*<Link key={i} className={`fl wp25 size-16 p11v hoverp ${item.isActive === true ? "active" : ""}`}  
-		      							onClick={ _this.menuOpen.bind(_this,item) } path={item.url}
-		      							><FormattedMessage id={item.name} /></Link>*/
-		      							<li key={i} className={`fl wp25 size-16 p11v hoverp ${item.isActive === true ? "active" : ""}`}  
+		      							<li key={i} className={`fl wp25 size-16 p11v hoverp ${item.isActive === true ? "active" : ""}`}
 		      							onClick={ _this.menuOpen.bind(_this,item) }
-		      							><FormattedMessage id={item.name} /></li>
+		      							>
+		      								<Link to={item.url}><FormattedMessage id={item.name} /></Link>
+		      							</li>
 		      						)
 		      					})
 		      				}
 		      			</ul>
 		      		</div>
 		      	</div>
-		      {/*	<router-view/>*/}
+		      	{this.props.children}
 	        </div>
 	    );
 	}

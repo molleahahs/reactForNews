@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { browserHistory, Route, Link  } from 'react-router'
+import { browserHistory, Link  } from 'react-router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'//小图标
 import './index.less'
 import { FormattedMessage  } from 'react-intl';//多语言
@@ -37,8 +37,11 @@ export default class Index extends Component {
 
 	menuCur() {// 用户随意输入一个链接，根据链接设置当前样式
 		var hash = browserHistory.getCurrentLocation().hash.substring(2);
+		if(hash == ''){
+			return;
+		}
 		_.forEach(this.state.menuList, function(key, value){
-			if(key.url == hash){
+			if(!hash.indexOf(key.url)){
 				key.isActive = true;
 			}else{
 				key.isActive = false;

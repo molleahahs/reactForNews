@@ -6,15 +6,20 @@ import Collection from '@/view/collection/collection'
 import Get from '@/view/get/get'
 import Share from '@/view/share/share'
 import Upload from '@/view/upload/upload'
+import Upload1 from '@/view/upload/upload1'
+import Upload2 from '@/view/upload/upload2'
 
 export default () => (
 	<Router history={hashHistory}>{/*这个hashHistory要加，不然报getCurrentLocation的一个错误，无解，可能和react与react-router版本有关系*/}
-        <Route path="/" component={Index}>{/*首页打开是index组件*/}
+        <Route exact path="/" component={Index}>{/*首页打开是index组件*/}
         	<IndexRoute component={Get} />{/*默认连接到get子路由*/}
-        	<Route path="/collection" component={Collection}/>
-        	<Route path="/share" component={Share}/>
-        	<Route path="/get" component={Get}/>
-        	<Route path="/upload" component={Upload}/>
+        	<Route path="collection" component={Collection}/>
+        	<Route path="share" component={Share}/>
+        	<Route path="get" component={Get}/>
+        	<Route path="upload" component={Upload}>
+        		<Route path="/upload1" component={Upload1}/>
+        		<Route path="/upload2" component={Upload2}/>
+        	</Route>
         </Route>
 	</Router>
 )
